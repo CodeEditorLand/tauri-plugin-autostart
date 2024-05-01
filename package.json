@@ -1,12 +1,22 @@
 {
+	"author": {
+		"email": "Land@PlayForm.Cloud",
+		"name": "🌆 — Land —",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
 	"authors": [
 		"Tauri Programme within The Commons Conservancy"
 	],
 	"browser": "dist-js/index.min.js",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/TauriPluginAutostart/issues"
+	},
 	"dependencies": {
 		"@tauri-apps/api": "1.5.3"
 	},
 	"devDependencies": {
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
 		"tslib": "2.6.2"
 	},
 	"exports": {
@@ -20,10 +30,27 @@
 		"README.md",
 		"LICENSE"
 	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriPluginAutostart#readme",
+	"keywords": [
+		"land"
+	],
+	"license": "SEE LICENSE IN LICENSE",
 	"module": "dist-js/index.mjs",
 	"name": "tauri-plugin-autostart-api",
-	"scripts": {
-		"build": "rollup -c"
+	"private": false,
+	"publishConfig": {
+		"access": "public"
 	},
-	"types": "dist-js/index.d.ts"
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/TauriPluginAutostart.git"
+	},
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"build": "rollup -c",
+		"prepublishOnly": "Build 'Source/**/*.ts'"
+	},
+	"type": "module",
+	"types": "dist-js/index.d.ts",
+	"version": "0.0.1"
 }
