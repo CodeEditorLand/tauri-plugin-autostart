@@ -1,29 +1,29 @@
 {
-	"name": "tauri-plugin-autostart-api",
-	"exports": {
-		"browser": "./dist-js/index.min.js",
-		"import": "./dist-js/index.mjs",
-		"types": "./dist-js/index.d.ts"
-	},
-	"module": "dist-js/index.mjs",
-	"browser": "dist-js/index.min.js",
-	"types": "dist-js/index.d.ts",
-	"files": [
-		"dist-js",
-		"!dist-js/**/*.map",
-		"README.md",
-		"LICENSE"
+	"authors": [
+		"Tauri Programme within The Commons Conservancy"
 	],
-	"scripts": {
-		"build": "rollup -c"
-	},
+	"browser": "dist-js/index.min.js",
 	"dependencies": {
 		"@tauri-apps/api": "2.0.0-beta.15"
 	},
 	"devDependencies": {
 		"tslib": "2.6.3"
 	},
-	"authors": [
-		"Tauri Programme within The Commons Conservancy"
-	]
+	"exports": {
+		"browser": "./dist-js/index.min.js",
+		"import": "./dist-js/index.mjs",
+		"types": "./dist-js/index.d.ts"
+	},
+	"files": [
+		"dist-js",
+		"!dist-js/**/*.map",
+		"README.md",
+		"LICENSE"
+	],
+	"module": "dist-js/index.mjs",
+	"name": "tauri-plugin-autostart-api",
+	"scripts": {
+		"build": "rollup -c"
+	},
+	"types": "dist-js/index.d.ts"
 }
