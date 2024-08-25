@@ -4,10 +4,10 @@
 	],
 	"browser": "dist-js/index.min.js",
 	"dependencies": {
-		"@tauri-apps/api": "2.0.0-rc.1"
+		"@tauri-apps/api": "2.0.0-rc.3"
 	},
 	"devDependencies": {
-		"tslib": "2.6.3"
+		"tslib": "2.7.0"
 	},
 	"exports": {
 		"browser": "./dist-js/index.min.js",
