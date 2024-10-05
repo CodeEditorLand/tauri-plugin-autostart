@@ -1,6 +1,7 @@
 ![plugin-autostart](https://github.com/tauri-apps/plugins-workspace/raw/v1/plugins/autostart/banner.png)
 
-Automatically launch your application at startup. Supports Windows, Mac (via AppleScript or Launch Agent), and Linux.
+Automatically launch your application at startup. Supports Windows, Mac (via
+AppleScript or Launch Agent), and Linux.
 
 ## Install
 
@@ -8,9 +9,12 @@ _This plugin requires a Rust version of at least **1.67**_
 
 There are three general methods of installation that we can recommend.
 
-1. Use crates.io and npm (easiest, and requires you to trust that our publishing pipeline worked)
-2. Pull sources directly from Github using git tags / revision hashes (most secure)
-3. Git submodule install this repo in your tauri project and then use file protocol to ingest the source (most secure, but inconvenient to use)
+1. Use crates.io and npm (easiest, and requires you to trust that our publishing
+   pipeline worked)
+2. Pull sources directly from Github using git tags / revision hashes (most
+   secure)
+3. Git submodule install this repo in your tauri project and then use file
+   protocol to ingest the source (most secure, but inconvenient to use)
 
 Install the Core plugin by adding the following to your `Cargo.toml` file:
 
@@ -21,9 +25,12 @@ Install the Core plugin by adding the following to your `Cargo.toml` file:
 tauri-plugin-autostart = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 ```
 
-You can install the JavaScript Guest bindings using your preferred JavaScript package manager:
+You can install the JavaScript Guest bindings using your preferred JavaScript
+package manager:
 
-> Note: Since most JavaScript package managers are unable to install packages from git monorepos we provide read-only mirrors of each plugin. This makes installation option 2 more ergonomic to use.
+> Note: Since most JavaScript package managers are unable to install packages
+> from git monorepos we provide read-only mirrors of each plugin. This makes
+> installation option 2 more ergonomic to use.
 
 ```sh
 pnpm add https://github.com/tauri-apps/tauri-plugin-autostart#v1
@@ -50,10 +57,11 @@ fn main() {
 }
 ```
 
-Afterwards all the plugin's APIs are available through the JavaScript guest bindings:
+Afterwards all the plugin's APIs are available through the JavaScript guest
+bindings:
 
 ```javascript
-import { enable, isEnabled, disable } from "tauri-plugin-autostart-api";
+import { disable, enable, isEnabled } from "tauri-plugin-autostart-api";
 
 await enable();
 
@@ -64,7 +72,8 @@ disable();
 
 ## Contributing
 
-PRs accepted. Please make sure to read the Contributing Guide before making a pull request.
+PRs accepted. Please make sure to read the Contributing Guide before making a
+pull request.
 
 ## Partners
 
@@ -80,7 +89,9 @@ PRs accepted. Please make sure to read the Contributing Guide before making a pu
   </tbody>
 </table>
 
-For the complete list of sponsors please visit our [website](https://tauri.app#sponsors) and [Open Collective](https://opencollective.com/tauri).
+For the complete list of sponsors please visit our
+[website](https://tauri.app#sponsors) and
+[Open Collective](https://opencollective.com/tauri).
 
 ## License
 
