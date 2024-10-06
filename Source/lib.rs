@@ -33,10 +33,7 @@ pub enum Error {
 }
 
 impl Serialize for Error {
-	fn serialize<S>(
-		&self,
-		serializer:S,
-	) -> std::result::Result<S::Ok, S::Error>
+	fn serialize<S>(&self, serializer:S) -> std::result::Result<S::Ok, S::Error>
 	where
 		S: Serializer, {
 		serializer.serialize_str(self.to_string().as_ref())
@@ -64,25 +61,17 @@ pub trait ManagerExt<R:Runtime> {
 }
 
 impl<R:Runtime, T:Manager<R>> ManagerExt<R> for T {
-	fn autolaunch(&self) -> State<'_, AutoLaunchManager> {
-		self.state::<AutoLaunchManager>()
-	}
+	fn autolaunch(&self) -> State<'_, AutoLaunchManager> { self.state::<AutoLaunchManager>() }
 }
 
 #[command]
-async fn enable(manager:State<'_, AutoLaunchManager>) -> Result<()> {
-	manager.enable()
-}
+async fn enable(manager:State<'_, AutoLaunchManager>) -> Result<()> { manager.enable() }
 
 #[command]
-async fn disable(manager:State<'_, AutoLaunchManager>) -> Result<()> {
-	manager.disable()
-}
+async fn disable(manager:State<'_, AutoLaunchManager>) -> Result<()> { manager.disable() }
 
 #[command]
-async fn is_enabled(manager:State<'_, AutoLaunchManager>) -> Result<bool> {
-	manager.is_enabled()
-}
+async fn is_enabled(manager:State<'_, AutoLaunchManager>) -> Result<bool> { manager.is_enabled() }
 
 /// Initializes the plugin.
 ///
@@ -99,10 +88,7 @@ pub fn init<R:Runtime>(
 			if let Some(args) = args {
 				builder.set_args(&args);
 			}
-			builder.set_use_launch_agent(matches!(
-				macos_launcher,
-				MacosLauncher::LaunchAgent
-			));
+			builder.set_use_launch_agent(matches!(macos_launcher, MacosLauncher::LaunchAgent));
 
 			let current_exe = current_exe()?;
 
@@ -116,33 +102,27 @@ pub fn init<R:Runtime>(
 				// It must be: /Applications/Example.app
 				// If it didn't find exactly a single occurance of .app, it will
 				// default to exe path to not break it.
-				let exe_path =
-					current_exe.canonicalize()?.display().to_string();
+				let exe_path = current_exe.canonicalize()?.display().to_string();
 				let parts:Vec<&str> = exe_path.split(".app/").collect();
-				let app_path = if parts.len() == 2
-					&& matches!(macos_launcher, MacosLauncher::AppleScript)
-				{
-					format!("{}.app", parts.get(0).unwrap().to_string())
-				} else {
-					exe_path
-				};
+				let app_path =
+					if parts.len() == 2 && matches!(macos_launcher, MacosLauncher::AppleScript) {
+						format!("{}.app", parts.get(0).unwrap().to_string())
+					} else {
+						exe_path
+					};
 				info!("auto_start path {}", &app_path);
 				builder.set_app_path(&app_path);
 			}
 			#[cfg(target_os = "linux")]
-			if let Some(appimage) = app
-				.env()
-				.appimage
-				.and_then(|p| p.to_str().map(|s| s.to_string()))
+			if let Some(appimage) =
+				app.env().appimage.and_then(|p| p.to_str().map(|s| s.to_string()))
 			{
 				builder.set_app_path(&appimage);
 			} else {
 				builder.set_app_path(&current_exe.display().to_string());
 			}
 
-			app.manage(AutoLaunchManager(
-				builder.build().map_err(|e| e.to_string())?,
-			));
+			app.manage(AutoLaunchManager(builder.build().map_err(|e| e.to_string())?));
 			Ok(())
 		})
 		.build()
