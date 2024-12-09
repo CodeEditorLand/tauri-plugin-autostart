@@ -1,29 +1,29 @@
 {
-	"authors": [
-		"Tauri Programme within The Commons Conservancy"
-	],
-	"browser": "dist-js/index.min.js",
-	"dependencies": {
-		"@codeeditorland/api": "2.1.1"
-	},
-	"devDependencies": {
-		"tslib": "2.8.1"
-	},
+	"name": "@codeeditorland/plugin-autostart-api",
 	"exports": {
 		"browser": "./dist-js/index.min.js",
 		"import": "./dist-js/index.mjs",
 		"types": "./dist-js/index.d.ts"
 	},
+	"module": "dist-js/index.mjs",
+	"browser": "dist-js/index.min.js",
+	"types": "dist-js/index.d.ts",
 	"files": [
 		"dist-js",
 		"!dist-js/**/*.map",
 		"README.md",
 		"LICENSE"
 	],
-	"module": "dist-js/index.mjs",
-	"name": "tauri-plugin-autostart-api",
 	"scripts": {
 		"build": "rollup -c"
 	},
-	"types": "dist-js/index.d.ts"
+	"dependencies": {
+		"@codeeditorland/api": "0.0.1"
+	},
+	"devDependencies": {
+		"tslib": "2.8.1"
+	},
+	"authors": [
+		"Tauri Programme within The Commons Conservancy"
+	]
 }
