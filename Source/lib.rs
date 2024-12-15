@@ -7,13 +7,13 @@ use std::env::current_exe;
 use auto_launch::{AutoLaunch, AutoLaunchBuilder};
 #[cfg(target_os = "macos")]
 use log::info;
-use serde::{ser::Serializer, Serialize};
+use serde::{Serialize, ser::Serializer};
 use tauri::{
-	command,
-	plugin::{Builder, TauriPlugin},
 	Manager,
 	Runtime,
 	State,
+	command,
+	plugin::{Builder, TauriPlugin},
 };
 
 type Result<T> = std::result::Result<T, Error>;
